@@ -33,11 +33,11 @@ public class BapUtils {
     public static final boolean isLocalDev = false;
     public static final Logger logger = LogManager.getLogger(kModId);
 
-    public static final Snack snack = new Snack("Iris");
+    private static final Snack snack = new Snack("Iris");
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        logger.log(Level.INFO, "HELLO from " + kModName + "! You are on Minecraft Forge version 1.8.9.");
+        logger.log(Level.INFO, "HELLO from " + kModName + " v." + kModVersion + " for Minecraft Forge 1.8.9!");
 
         snack.consume(); // inside joke
 
@@ -65,11 +65,10 @@ public class BapUtils {
     public static void clientVerbose(String message) {
         if (BapSettingsGui.INSTANCE.getClientChatVerbose()) {
             Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(
-                cc(CCodes.GRAY, kClientPrefix) + " " + cc(Arrays.asList(CCodes.DARK_GRAY, CCodes.ITALIC), message)
+                cc(CCodes.DARK_GRAY, kClientPrefix) + " " + cc(Arrays.asList(CCodes.DARK_GRAY, CCodes.ITALIC), message)
             ));
         }
     }
-
 
     public static void queueServerMessage(String message) {
         AtomicCache.serverChatQueue.updateAndGet((list) -> {

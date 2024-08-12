@@ -71,14 +71,10 @@ public final class BapJoinDungeon extends BaseCommand implements IBapHandleable 
 
         sendCommand("party list", true);
 
-        if (!AtomicCache.isInParty.get()) {
-            dout("Assuming solo run, joining dungeon");
-            return;
-        }
-
-        if ((AtomicCache.lastPartyLeader.get() != null)
-            && AtomicCache.lastPartyLeader.get().equals(Minecraft.getMinecraft().thePlayer.getName())) {
-            dout("Already the party leader, joining dungeon");
+        if (((AtomicCache.lastPartyLeader.get() != null)
+            && AtomicCache.lastPartyLeader.get().equals(Minecraft.getMinecraft().thePlayer.getName()))
+            || !AtomicCache.isInParty.get()) {
+            dout("We are leader or solo, joining dungeon");
 
             sendCommand("joindungeon " + floor.commandCode);
             return;

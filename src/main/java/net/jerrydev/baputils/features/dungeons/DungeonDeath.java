@@ -47,17 +47,17 @@ public class DungeonDeath implements IBapHandleable {
     }
 
     protected static String getSuspect(String patternStr, Matcher matcher) {
-        if (patternStr.equals(Constants.kDungeonDeathBP)) {
+        if (patternStr.equals(Constants.kDungeonDeathBurnedP)) {
             return "Fire";
-        } else if (patternStr.equals(Constants.kDungeonDeathCP)) {
+        } else if (patternStr.equals(Constants.kDungeonDeathCrushedP)) {
             return "Crusher";
-        } else if (patternStr.equals(Constants.kDungeonDeathDP)) {
+        } else if (patternStr.equals(Constants.kDungeonDeathDcP)) {
             return "Disconnect";
-        } else if (patternStr.equals(Constants.kDungeonDeathGP)) {
+        } else if (patternStr.equals(Constants.kDungeonDeathGhostP)) {
             return "Death";
-        } else if (patternStr.equals(Constants.kDungeonDeathMP)) {
+        } else if (patternStr.equals(Constants.kDungeonDeathMobP)) {
             return "Mob";
-        } else if (patternStr.equals(Constants.kDungeonDeathTP)) {
+        } else if (patternStr.equals(Constants.kDungeonDeathTrapP)) {
             return "Trap";
         } else {
             return matcher.group(2);

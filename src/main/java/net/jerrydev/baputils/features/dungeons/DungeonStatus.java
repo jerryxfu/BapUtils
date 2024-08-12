@@ -46,7 +46,7 @@ public final class DungeonStatus {
                             return;
                         }
                         if (event.positive) {
-                            // heh?
+                            // this shouldn't happen
                             clientMessage(cc(CCodes.RED, event.actor)
                                 + " " + cc(CCodes.DARK_GREEN, ChatEmojis.LEFT_ARROW.c)
                                 + " " + cc(CCodes.GREEN, event.target));
@@ -63,10 +63,10 @@ public final class DungeonStatus {
                     return list;
                 });
 
-                if (BapSettingsGui.INSTANCE.getAutoRequeueMaster()
-                    && AtomicCache.lastPartyLeader.get().equals(Minecraft.getMinecraft().thePlayer.getName())) {
-                    AutoRequeue.handle();
-                }
+                if (BapSettingsGui.INSTANCE.getAutoRequeueMaster())
+                    if (AtomicCache.lastPartyLeader.get().equals(Minecraft.getMinecraft().thePlayer.getName())) {
+                        AutoRequeue.handle();
+                    }
             } catch (final InterruptedException e) {
                 throw new RuntimeException(e);
             }

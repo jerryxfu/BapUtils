@@ -64,8 +64,8 @@ public class ClientPeriodic {
                 double velocityInBlocksPerSecond = velocityInBlocksPerTick * 20; // Assuming 20 client TPS
                 double velocityInKPH = velocityInBlocksPerSecond * 3.6;
 
-                AtomicCache.playerVelocityMPS.set(Math.round(velocityInBlocksPerSecond * 100000.0) / 100000.0);
-                AtomicCache.playerVelocityKPH.set(Math.round(velocityInKPH * 100000.0) / 100000.0);
+                AtomicCache.playerVelocityMPS.set(Math.round(velocityInBlocksPerSecond * 1000.0) / 1000.0);
+                AtomicCache.playerVelocityKPH.set(Math.round(velocityInKPH * 1000.0) / 1000.0);
 
                 // Update the rolling average speed
                 totalDistance += distance;
@@ -78,7 +78,7 @@ public class ClientPeriodic {
                     totalTicks = 0;
                 }
 
-                AtomicCache.playerAvgVelocityMPS.set(Math.round(rollingAverageSpeedMPS * 100000.0) / 100000.0);
+                AtomicCache.playerAvgVelocityMPS.set(Math.round(rollingAverageSpeedMPS * 1000.0) / 1000.0);
             }
 
             lastPos = currentPos;

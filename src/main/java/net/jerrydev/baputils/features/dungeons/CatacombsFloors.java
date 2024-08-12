@@ -11,15 +11,14 @@ public enum CatacombsFloors {
     FLOOR5("f5", false, "CATACOMBS_FLOOR_FIVE", "The Catacombs, Floor V"),
     FLOOR6("f6", false, "CATACOMBS_FLOOR_SIX", "The Catacombs, Floor VI"),
     FLOOR7("f7", false, "CATACOMBS_FLOOR_SEVEN", "The Catacombs, Floor VII"),
-    MASTER0("m0", true, "MASTER_CATACOMBS_ENTRANCE", "MM Catacombs, Entrance"),
-    MASTER1("m1", true, "MASTER_CATACOMBS_FLOOR_ONE", "MM Catacombs, Floor I"),
-    MASTER2("m2", true, "MASTER_CATACOMBS_FLOOR_TWO", "MM Catacombs, Floor II"),
-    MASTER3("m3", true, "MASTER_CATACOMBS_FLOOR_THREE", "MM Catacombs, Floor III"),
-    MASTER4("m4", true, "MASTER_CATACOMBS_FLOOR_FOUR", "MM Catacombs, Floor IV"),
-    MASTER5("m5", true, "MASTER_CATACOMBS_FLOOR_FIVE", "MM Catacombs, Floor V"),
-    MASTER6("m6", true, "MASTER_CATACOMBS_FLOOR_SIX", "MM Catacombs, Floor VI"),
-    MASTER7("m7", true, "MASTER_CATACOMBS_FLOOR_SEVEN", "MM Catacombs, Floor VII");
-
+    MASTER0("m0", true, "MASTER_CATACOMBS_ENTRANCE", "MM The Catacombs, Entrance"),
+    MASTER1("m1", true, "MASTER_CATACOMBS_FLOOR_ONE", "MM The Catacombs, Floor I"),
+    MASTER2("m2", true, "MASTER_CATACOMBS_FLOOR_TWO", "MM The Catacombs, Floor II"),
+    MASTER3("m3", true, "MASTER_CATACOMBS_FLOOR_THREE", "MM The Catacombs, Floor III"),
+    MASTER4("m4", true, "MASTER_CATACOMBS_FLOOR_FOUR", "MM The Catacombs, Floor IV"),
+    MASTER5("m5", true, "MASTER_CATACOMBS_FLOOR_FIVE", "MM The Catacombs, Floor V"),
+    MASTER6("m6", true, "MASTER_CATACOMBS_FLOOR_SIX", "MM The Catacombs, Floor VI"),
+    MASTER7("m7", true, "MASTER_CATACOMBS_FLOOR_SEVEN", "MM The Catacombs, Floor VII");
 
     @Nullable
     public final String floorCode;

@@ -142,7 +142,7 @@ object BapSettingsGui : Vigilant(File("./config/jerrydev/baputils/modconfig.toml
         description = "Delay in seconds before requeueing after a dungeon run. There is a 3s-ish delay before auto requeue kicks in.",
         category = "Dungeons"
     )
-    var autoRequeueDelay = 8
+    var autoRequeueDelay = 5
 
     @Property(
         type = PropertyType.SWITCH,

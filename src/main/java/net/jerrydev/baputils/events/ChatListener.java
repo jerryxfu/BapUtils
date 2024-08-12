@@ -46,7 +46,7 @@ public class ChatListener {
 
 
         // listen for '/party list' command and set the most recent party leader
-        for (final String pat : kPLeaderPs) {
+        for (final String pat : kPLeaderP) {
             if (cleanMessage.matches(pat)) {
                 final Pattern pattern = Pattern.compile(pat, Pattern.CASE_INSENSITIVE);
                 final Matcher matcher = pattern.matcher(cleanMessage);
@@ -62,10 +62,10 @@ public class ChatListener {
                         dout("Updated lastPartyLeader to " + newLeader + " from " + oldLeader);
                     }
 
-                    // if there is the party leader message, we are in a party
+                    // if there is the party leader message, we are in necessarily a party
                     if (!AtomicCache.isInParty.get()) {
                         AtomicCache.isInParty.set(true);
-                        dout("Updated isInParty to true");
+                        dout("Updated isInParty to " + AtomicCache.isInParty.get());
                     }
                 }
             }
@@ -78,14 +78,13 @@ public class ChatListener {
             });
 
             AtomicCache.inDungeon.set(true);
-            dout("Updated isDungeon to true");
+            dout("Updated isDungeon to " + AtomicCache.inDungeon.get());
 
             final Pattern pattern = Pattern.compile(kCatacombsJoinP);
             final Matcher matcher = pattern.matcher(cleanMessage);
 
             if (!matcher.find()) {
-                errorMessage("kCatacombsJoinPat no groups found. This is impossible!" +
-                    " Please open a bug report at " + Constants.kGitHubIssues);
+                errorMessage("kCatacombsJoinPat matcher no groups found. This is impossible!" + " Please open a bug report at " + Constants.kGitHubIssues);
                 return;
             }
 
@@ -93,7 +92,7 @@ public class ChatListener {
             final CatacombsFloors newFloor = CatacombsFloors.getFloorByChatName(matcher.group(2));
 
             if (newFloor == null) {
-                dout("Could not find a CatacombsFloor for " + matcher.group(2));
+                dout("Could not find a CatacombsFloor for \"" + matcher.group(2) + "\". Please open a bug report at " + Constants.kGitHubIssues + ". Possible fix: Update CatacombsFloors enum.");
                 return;
             }
 
@@ -107,24 +106,15 @@ public class ChatListener {
             return;
         }
 
-        if (cleanMessage.matches(kInPartyP)) {
-            AtomicCache.isInParty.set(true);
-            dout("Updated isInParty to " + AtomicCache.isInParty.get());
-
-            final Pattern pattern = Pattern.compile(kInPartyP);
-            final Matcher matcher = pattern.matcher(cleanMessage);
-            if (matcher.find()) {
-                final String partyLeader = matcher.group(1);
-                // final String partyLeader = pattern.matcher(cleanMessage).group(1); // not separating matcher declaration bc y not
-
-                AtomicCache.lastPartyLeader.set(partyLeader);
-                dout("Updated lastPartyLeader to " + partyLeader);
-                return;
+        for (final String patternStr : kInPartyP) {
+            if (cleanMessage.matches(patternStr)) {
+                AtomicCache.isInParty.set(true);
+                dout("Updated isInParty to " + AtomicCache.isInParty.get());
             }
         }
 
-        for (final String pattern : kNotInPartyPs) {
-            if (cleanMessage.matches(pattern)) {
+        for (final String patternStr : kNotInPartyP) {
+            if (cleanMessage.matches(patternStr)) {
                 if (!AtomicCache.isInParty.get()) {
                     dout("No changes for isInParty");
                     return;
@@ -132,6 +122,8 @@ public class ChatListener {
 
                 AtomicCache.isInParty.set(false);
                 dout("Updated isInParty to " + AtomicCache.isInParty.get());
+                AtomicCache.lastPartyLeader.set(null);
+                dout("Updated lastPartyLeader to null");
                 return;
             }
         }
