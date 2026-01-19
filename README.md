@@ -51,12 +51,11 @@ Should you come across a bug or wish to share a suggestion, feel free to open an
 | Build tool | Gradle |
 
 
-## details (TBD)
+## details (TBD 1.21.10)
 
 <details close>
-  <summary>Here some features we would like to add</summary>
+  <summary>Here some features we would like to add to minecraft 1.21.10</summary>
   
-- Display dungeon secret route (might not happen or will take a really long time to make).
-- Mining profit display like soopy v2 but doesn't break (it will only display m/h and we plan on adding a reset button)
-- Maybe foraging update qol (if it ever comes out)
-- Mining min pristine procs tracker
+-Shaft Corpse Finder
+-Mining Profit Tracker
+-Mining Waypoints for Specific Shafts
