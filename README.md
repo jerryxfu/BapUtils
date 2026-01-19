@@ -56,6 +56,6 @@ Should you come across a bug or wish to share a suggestion, feel free to open an
 <details close>
   <summary>Here some features we would like to add to minecraft 1.21.10</summary>
   
--Shaft Corpse Finder
--Mining Profit Tracker
+-Shaft Corpse Finder \
+-Mining Profit Tracker \
 -Mining Waypoints for Specific Shafts
