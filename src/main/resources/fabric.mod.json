@@ -1,0 +1,26 @@
+{
+    "schemaVersion": 1,
+    "id": "baputils",
+    "version": "${version}",
+    "name": "BapUtils",
+    "description": "",
+    "authors": [],
+    "contact": {},
+    "license": "MPL-2.0",
+    "icon": "assets/baputils/icon.png",
+    "environment": "client",
+    "entrypoints": {
+        "client": [
+            "net.jerryxf.baputils.client.BapUtilsClient"
+        ]
+    },
+    "mixins": [
+        "baputils.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "fabric-language-kotlin": ">=${kotlin_loader_version}",
+        "fabric-api": "*",
+        "minecraft": "${minecraft_version}"
+    }
+}
