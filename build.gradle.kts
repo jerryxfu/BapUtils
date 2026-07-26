@@ -45,6 +45,9 @@ dependencies {
     implementation("net.fabricmc:fabric-loader:$loaderVersion")
     implementation("net.fabricmc:fabric-language-kotlin:$kotlinLoaderVersion")
     implementation("net.fabricmc.fabric-api:fabric-api:$fabricVersion")
+
+    // devlopment authentication
+    localRuntime("net.litetex.mcm:dev-auth-neo:1.1.1")
 }
 
 tasks.processResources {

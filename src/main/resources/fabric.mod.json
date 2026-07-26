@@ -11,7 +11,10 @@
     "environment": "client",
     "entrypoints": {
         "client": [
-            "net.jerryxf.baputils.client.BapUtilsClient"
+            {
+                "adapter": "kotlin",
+                "value": "net.jerryxf.baputils.BapUtils"
+            }
         ]
     },
     "mixins": [
